@@ -188,7 +188,7 @@ checked one by one on schema.org, and every template was validated with
 
 ## Related projects by the author
 
-- [Structured-Data-JSON-LD](https://github.com/LucasFerrazSEO/Structured-Data-JSON-LD):
+- [structured-data-json-ld](https://github.com/LucasFerrazSEO/structured-data-json-ld):
   the earlier repository, with a generic `LocalBusiness` example.
 - [jsonld-graph-check](https://github.com/LucasFerrazSEO/jsonld-graph-check):
   command-line validator for the integrity of a JSON-LD `@graph`.

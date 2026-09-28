@@ -189,7 +189,7 @@ validado com `json.tool` e `jsonld-graph-check` antes da publicação.
 
 ## Projetos relacionados do autor
 
-- [Structured-Data-JSON-LD](https://github.com/LucasFerrazSEO/Structured-Data-JSON-LD):
+- [structured-data-json-ld](https://github.com/LucasFerrazSEO/structured-data-json-ld):
   o repositório anterior, com um exemplo genérico de `LocalBusiness`.
 - [jsonld-graph-check](https://github.com/LucasFerrazSEO/jsonld-graph-check):
   validador de linha de comando da integridade de um `@graph` JSON-LD.
