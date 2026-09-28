@@ -1,0 +1,135 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "@id": "https://example.com.br/economia/juros-caem-em-setembro/#article",
+      "headline": "Juros caem em setembro e crédito imobiliário fica mais barato",
+      "description": "Resumo factual da notícia em uma ou duas frases, igual ao que aparece no topo da página.",
+      "image": [
+        "https://example.com.br/imagens/juros-setembro-1x1.jpg",
+        "https://example.com.br/imagens/juros-setembro-4x3.jpg",
+        "https://example.com.br/imagens/juros-setembro-16x9.jpg"
+      ],
+      "datePublished": "2026-09-20T08:30:00-03:00",
+      "dateModified": "2026-09-20T14:10:00-03:00",
+      "author": [
+        {
+          "@id": "https://example.com.br/autor/maria-exemplo/#person"
+        }
+      ],
+      "publisher": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "articleSection": "Economia",
+      "keywords": [
+        "juros",
+        "crédito imobiliário"
+      ],
+      "inLanguage": "pt-BR",
+      "isAccessibleForFree": true,
+      "mainEntityOfPage": {
+        "@id": "https://example.com.br/economia/juros-caem-em-setembro/#webpage"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com.br/economia/juros-caem-em-setembro/#webpage",
+      "url": "https://example.com.br/economia/juros-caem-em-setembro/",
+      "name": "Juros caem em setembro e crédito imobiliário fica mais barato",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://example.com.br/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://example.com.br/economia/juros-caem-em-setembro/#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://example.com.br/economia/juros-caem-em-setembro/#article"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://example.com.br/economia/juros-caem-em-setembro/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://example.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Economia",
+          "item": "https://example.com.br/economia/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Juros caem em setembro e crédito imobiliário fica mais barato"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com.br/autor/maria-exemplo/#person",
+      "name": "Maria Exemplo",
+      "url": "https://example.com.br/autor/maria-exemplo/",
+      "jobTitle": "Repórter de economia",
+      "knowsAbout": [
+        "Economia",
+        "Mercado financeiro"
+      ],
+      "worksFor": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/SUBSTITUA_PELO_PERFIL/"
+      ]
+    },
+    {
+      "@type": "NewsMediaOrganization",
+      "@id": "https://example.com.br/#organization",
+      "name": "Portal Exemplo",
+      "url": "https://example.com.br/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://example.com.br/#logo",
+        "url": "https://example.com.br/imagens/logo-portal-exemplo.png",
+        "width": 600,
+        "height": 60
+      },
+      "foundingDate": "2020-03-01",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "addressCountry": "BR"
+      },
+      "email": "redacao@example.com.br",
+      "publishingPrinciples": "https://example.com.br/principios-editoriais/",
+      "ethicsPolicy": "https://example.com.br/codigo-de-etica/",
+      "correctionsPolicy": "https://example.com.br/politica-de-correcoes/",
+      "verificationFactCheckingPolicy": "https://example.com.br/checagem-de-fatos/",
+      "masthead": "https://example.com.br/expediente/",
+      "ownershipFundingInfo": "https://example.com.br/quem-somos/#propriedade-e-financiamento",
+      "actionableFeedbackPolicy": "https://example.com.br/fale-com-a-redacao/",
+      "unnamedSourcesPolicy": "https://example.com.br/principios-editoriais/#fontes-anonimas",
+      "sameAs": [
+        "https://www.instagram.com/SUBSTITUA_PELO_PERFIL/",
+        "https://www.youtube.com/@SUBSTITUA_PELO_CANAL"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com.br/#website",
+      "url": "https://example.com.br/",
+      "name": "Portal Exemplo",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://example.com.br/#organization"
+      }
+    }
+  ]
+}

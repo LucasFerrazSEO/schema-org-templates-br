@@ -23,6 +23,7 @@ who build their sites. This README exists in English and Portuguese.
 - [What is included](#what-is-included)
 - [Templates](#templates)
 - [Type choices](#type-choices)
+- [Publishers: news portals and content blogs](#publishers-news-portals-and-content-blogs)
 - [How to use](#how-to-use)
 - [How to validate](#how-to-validate)
 - [FAQ](#faq)
@@ -48,7 +49,7 @@ structured data describes one coherent entity.
 ## What is included
 
 ```
-templates/   10 JSON-LD templates, one per segment (.jsonld)
+templates/   12 JSON-LD templates, one per segment (.jsonld)
 docs/        guides in Brazilian Portuguese
   campos-por-segmento.md   required and recommended fields per segment
   erros-comuns.md          common mistakes and how to fix them
@@ -83,6 +84,8 @@ Every business template has the same backbone:
 | Marketing agency or consultancy | `LocalBusiness` + `knowsAbout` | [templates/agencia-marketing.jsonld](templates/agencia-marketing.jsonld) |
 | Architect | `LocalBusiness` + `knowsAbout` | [templates/arquiteto.jsonld](templates/arquiteto.jsonld) |
 | Independent professional (author, specialist) | `Person` + `ProfilePage` | [templates/profissional-liberal.jsonld](templates/profissional-liberal.jsonld) |
+| News portal (publisher with a newsroom) | `NewsMediaOrganization` + `NewsArticle` | [templates/portal-de-noticias.jsonld](templates/portal-de-noticias.jsonld) |
+| Content blog (publisher without a newsroom) | `Organization` + `BlogPosting` | [templates/blog-de-conteudo.jsonld](templates/blog-de-conteudo.jsonld) |
 
 ## Type choices
 
@@ -112,6 +115,58 @@ type that exists and is not deprecated.
   the schema.org `MedicalSpecialty` enumeration (`PrimaryCare` and
   `Dentistry` in the templates).
 
+## Publishers: news portals and content blogs
+
+Two templates cover sites that publish content and earn from it, through
+display ads (AdSense, Ad Manager or AdX), search traffic, AI search
+traffic or paid traffic arbitrage. They describe an article page, not a
+business page, so the graph is different:
+
+1. The article (`NewsArticle` or `BlogPosting`) first, with `author`
+   pointing to a `Person` and `publisher` pointing to the organization.
+2. `WebPage` with `mainEntity` pointing to the article and `breadcrumb`
+   pointing to a `BreadcrumbList`.
+3. `Person` for the author, with an author page in `url`, `knowsAbout`
+   and `sameAs`.
+4. The publisher: `NewsMediaOrganization` for a portal with a newsroom,
+   `Organization` for a content blog. Both with `logo` and
+   `publishingPrinciples`.
+5. `WebSite` with `publisher` pointing to the organization.
+
+**Which type to choose.** Use [`NewsMediaOrganization`](https://schema.org/NewsMediaOrganization)
+only when the site has a newsroom and publishes its editorial policies.
+The type has its own properties for that: `ethicsPolicy`,
+`correctionsPolicy`, `verificationFactCheckingPolicy`, `masthead`,
+`ownershipFundingInfo`, `actionableFeedbackPolicy` and
+`unnamedSourcesPolicy`, among others. Each one points to a page that
+exists on the site. A blog without a newsroom uses `Organization` with
+[`publishingPrinciples`](https://schema.org/publishingPrinciples) pointing
+to its editorial policy.
+
+**What Google recommends for articles.** Google's [Article documentation](https://developers.google.com/search/docs/appearance/structured-data/article)
+(updated September 2026) lists no required properties. The recommended
+ones are `headline`, `image` (the templates use three aspect ratios,
+1x1, 4x3 and 16x9), `datePublished`, `dateModified` in ISO 8601 with
+time zone, and `author` as a `Person` or `Organization` with `name` and
+`url`. Each author goes in its own `author` entry.
+
+**What schema does not do for monetization.** No schema.org property
+declares AdSense, Ad Manager or AdX, and structured data does not affect
+ad approval or ad revenue. For sponsored content, the article can carry
+[`sponsor`](https://schema.org/sponsor) pointing to the sponsor
+organization, and paid links in the text use `rel="sponsored"`, as
+Google's [link attributes documentation](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links)
+asks. For sites that buy traffic (arbitrage), the markup is the same:
+what matters is that `dateModified` changes only when the content really
+changes, and that pages are not produced in bulk only to rank. Google's
+[spam policies](https://developers.google.com/search/docs/essentials/spam-policies)
+call that scaled content abuse.
+
+**For AI search.** An author with a real author page, `sameAs` to
+existing profiles and a published editorial policy make it easier for a
+search system to identify who wrote the text and who publishes it. That
+helps disambiguation. It does not guarantee a citation.
+
 ## How to use
 
 1. Copy the template of your segment.
@@ -139,7 +194,7 @@ Details in [docs/como-validar.md](docs/como-validar.md). In short:
 3. Vocabulary with the [Schema Markup Validator](https://validator.schema.org/).
 4. Google eligibility with the [Rich Results Test](https://search.google.com/test/rich-results).
 
-All ten templates pass `json.tool` and `jsonld-graph-check` with zero
+All twelve templates pass `json.tool` and `jsonld-graph-check` with zero
 errors and zero warnings.
 
 ## FAQ

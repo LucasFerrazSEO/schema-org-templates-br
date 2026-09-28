@@ -23,6 +23,7 @@ Este README existe em inglês e em português.
 - [O que o repositório contém](#o-que-o-repositório-contém)
 - [Modelos](#modelos)
 - [Escolha dos tipos](#escolha-dos-tipos)
+- [Publishers: portais de notícia e blogs de conteúdo](#publishers-portais-de-notícia-e-blogs-de-conteúdo)
 - [Como usar](#como-usar)
 - [Como validar](#como-validar)
 - [Perguntas frequentes](#perguntas-frequentes)
@@ -48,7 +49,7 @@ estruturado descreva uma entidade só, coerente.
 ## O que o repositório contém
 
 ```
-templates/   10 modelos JSON-LD, um por segmento (.jsonld)
+templates/   12 modelos JSON-LD, um por segmento (.jsonld)
 docs/        guias em português do Brasil
   campos-por-segmento.md   campos obrigatórios e recomendados por segmento
   erros-comuns.md          erros comuns e como corrigir
@@ -83,6 +84,8 @@ Todo modelo de negócio tem a mesma espinha:
 | Agência ou consultoria de marketing | `LocalBusiness` + `knowsAbout` | [templates/agencia-marketing.jsonld](templates/agencia-marketing.jsonld) |
 | Arquiteto | `LocalBusiness` + `knowsAbout` | [templates/arquiteto.jsonld](templates/arquiteto.jsonld) |
 | Profissional liberal (autor, especialista) | `Person` + `ProfilePage` | [templates/profissional-liberal.jsonld](templates/profissional-liberal.jsonld) |
+| Portal de notícias (publisher com redação) | `NewsMediaOrganization` + `NewsArticle` | [templates/portal-de-noticias.jsonld](templates/portal-de-noticias.jsonld) |
+| Blog de conteúdo (publisher sem redação) | `Organization` + `BlogPosting` | [templates/blog-de-conteudo.jsonld](templates/blog-de-conteudo.jsonld) |
 
 ## Escolha dos tipos
 
@@ -110,6 +113,57 @@ regra aqui é: o tipo mais específico que existe e não está obsoleto.
 - **Clínica médica e odontológica** usam `medicalSpecialty` com valores da
   enumeração `MedicalSpecialty` do schema.org (`PrimaryCare` e
   `Dentistry` nos modelos).
+
+## Publishers: portais de notícia e blogs de conteúdo
+
+Dois modelos atendem sites que publicam conteúdo e ganham com ele, por
+anúncio de display (AdSense, Ad Manager ou AdX), tráfego de busca,
+tráfego de busca com IA ou arbitragem de tráfego pago. Eles descrevem uma
+página de artigo, não a página de um negócio, então o grafo muda:
+
+1. O artigo (`NewsArticle` ou `BlogPosting`) primeiro, com `author`
+   apontando para uma `Person` e `publisher` apontando para a organização.
+2. `WebPage` com `mainEntity` apontando para o artigo e `breadcrumb`
+   apontando para um `BreadcrumbList`.
+3. `Person` do autor, com a página de autor em `url`, `knowsAbout` e
+   `sameAs`.
+4. O publisher: `NewsMediaOrganization` para portal com redação,
+   `Organization` para blog de conteúdo. Os dois com `logo` e
+   `publishingPrinciples`.
+5. `WebSite` com `publisher` apontando para a organização.
+
+**Qual tipo escolher.** Use [`NewsMediaOrganization`](https://schema.org/NewsMediaOrganization)
+só quando o site tem redação e publica as políticas editoriais. O tipo
+tem propriedades próprias para isso: `ethicsPolicy`, `correctionsPolicy`,
+`verificationFactCheckingPolicy`, `masthead`, `ownershipFundingInfo`,
+`actionableFeedbackPolicy` e `unnamedSourcesPolicy`, entre outras. Cada
+uma aponta para uma página que existe no site. Blog sem redação usa
+`Organization` com [`publishingPrinciples`](https://schema.org/publishingPrinciples)
+apontando para a política editorial.
+
+**O que o Google recomenda para artigos.** A [documentação de Article do Google](https://developers.google.com/search/docs/appearance/structured-data/article)
+(atualizada em setembro de 2026) não tem propriedade obrigatória. As
+recomendadas são `headline`, `image` (os modelos usam três proporções,
+1x1, 4x3 e 16x9), `datePublished`, `dateModified` em ISO 8601 com fuso
+horário, e `author` como `Person` ou `Organization` com `name` e `url`.
+Cada autor entra em uma entrada `author` própria.
+
+**O que o schema não faz pela monetização.** Nenhuma propriedade do
+schema.org declara AdSense, Ad Manager ou AdX, e dado estruturado não
+interfere na aprovação nem na receita de anúncio. Em conteúdo patrocinado,
+o artigo pode levar [`sponsor`](https://schema.org/sponsor) apontando para
+a organização patrocinadora, e os links pagos no texto usam
+`rel="sponsored"`, como pede a [documentação de atributos de link do Google](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links).
+Para quem compra tráfego (arbitragem), a marcação é a mesma: o que importa
+é que `dateModified` mude só quando o conteúdo muda de verdade e que as
+páginas não sejam produzidas em massa só para ranquear. As
+[políticas de spam do Google](https://developers.google.com/search/docs/essentials/spam-policies)
+chamam isso de abuso de conteúdo em escala.
+
+**Para a busca com IA.** Autor com página de autor real, `sameAs` para
+perfis que existem e política editorial publicada facilitam que um
+sistema de busca identifique quem escreveu o texto e quem publica. Isso
+ajuda a desambiguar. Não garante citação.
 
 ## Como usar
 
@@ -139,7 +193,7 @@ Detalhes em [docs/como-validar.md](docs/como-validar.md). Em resumo:
 3. Vocabulário no [Schema Markup Validator](https://validator.schema.org/).
 4. Elegibilidade no Google pelo [Teste de pesquisa aprimorada](https://search.google.com/test/rich-results).
 
-Os dez modelos passam no `json.tool` e no `jsonld-graph-check` com zero
+Os doze modelos passam no `json.tool` e no `jsonld-graph-check` com zero
 erro e zero aviso.
 
 ## Perguntas frequentes

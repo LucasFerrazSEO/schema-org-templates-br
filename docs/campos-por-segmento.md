@@ -42,6 +42,8 @@ entidade sem ambiguidade.
 | Agência ou consultoria de marketing | `LocalBusiness` | `knowsAbout` no negócio e no fundador; serviços no `hasOfferCatalog`. `ProfessionalService` está obsoleto no schema.org. |
 | Arquiteto | `LocalBusiness` | `knowsAbout` com as especialidades; `hasCredential` nomeando o CAU. |
 | Profissional liberal | `Person` + `ProfilePage` | `jobTitle`, `knowsAbout`, `sameAs`, `mainEntityOfPage`; na `ProfilePage`, `mainEntity`, `dateCreated` e `dateModified`. |
+| Portal de notícias | `NewsMediaOrganization` + `NewsArticle` | No artigo: `headline`, `image` em 1x1, 4x3 e 16x9, `datePublished` e `dateModified` com fuso, `author` como `Person` com `url` da página de autor, `publisher`, `articleSection`. Na organização: `logo`, `publishingPrinciples` e as políticas próprias do tipo (`ethicsPolicy`, `correctionsPolicy`, `verificationFactCheckingPolicy`, `masthead`, `ownershipFundingInfo`), cada uma apontando para página que existe. |
+| Blog de conteúdo | `Organization` + `BlogPosting` | Os mesmos campos do artigo; na organização, `logo` e `publishingPrinciples`. Conteúdo patrocinado: `sponsor` no artigo apontando para o patrocinador. |
 
 ## Nós de página
 
@@ -50,6 +52,7 @@ entidade sem ambiguidade.
 | `WebSite` | `@id`, `url`, `name`, `inLanguage` `"pt-BR"` | `publisher` aponta para o negócio (ou para a pessoa, no perfil). |
 | `WebPage` | `@id`, `url`, `name`, `inLanguage` | `isPartOf` aponta para o `WebSite`; `about` aponta para o negócio; `hasPart` aponta para o `FAQPage`. |
 | `ProfilePage` | `@id`, `url`, `name`, `dateCreated`, `dateModified` | `mainEntity` aponta para a `Person`; `isPartOf` aponta para o `WebSite`. |
+| `BreadcrumbList` | `@id`, `itemListElement` com `ListItem` (`position`, `name`, `item`) | A `WebPage` aponta para ele em `breadcrumb`; o último item fica sem `item`. |
 | `FAQPage` | `@id` | `isPartOf` aponta para a página; `mainEntity` lista os nós `Question`. |
 | `Question` | `@id`, `name`, `acceptedAnswer` (`Answer` com `text`) | Pergunta e resposta iguais às visíveis na página. |
 

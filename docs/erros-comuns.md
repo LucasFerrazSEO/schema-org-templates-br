@@ -102,3 +102,26 @@ que não aparecem no site.
 
 O dado estruturado descreve a página. O que ele afirma e a página não
 mostra vira uma afirmação sem prova.
+
+## 9. `dateModified` que muda sem o conteúdo mudar
+
+**Errado:** portal ou blog que atualiza `dateModified` em todas as
+páginas a cada deploy, ou todo dia, para parecer recente.
+
+**Certo:** `dateModified` muda só quando o texto muda de verdade, e a
+data aparece também na página.
+
+Data de atualização falsa é um sinal que não se sustenta quando alguém
+compara as versões, e não muda o que o conteúdo oferece.
+
+## 10. Autor como texto ou com cargo no nome
+
+**Errado:** `"author": "Redação"` ou `"name": "Maria Exemplo, repórter"`.
+
+**Certo:** `author` apontando para um nó `Person` com `name` só com o
+nome, `url` da página de autor e `sameAs` para perfis que existem. Texto
+sem autor identificado usa a `Organization` como autor.
+
+A [documentação de Article do Google](https://developers.google.com/search/docs/appearance/structured-data/article)
+pede o nome do autor sem cargo nem título, e uma entrada `author` por
+autor.
