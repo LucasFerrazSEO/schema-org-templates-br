@@ -1,0 +1,171 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "https://example.com.br/#organization",
+      "name": "Contábil Exemplo",
+      "description": "Escritório de contabilidade para pequenas empresas, com abertura de empresa, rotina fiscal e departamento pessoal.",
+      "url": "https://example.com.br/",
+      "logo": "https://example.com.br/imagens/logo.png",
+      "image": "https://example.com.br/imagens/fachada.jpg",
+      "telephone": "+558100000000",
+      "email": "contato@example.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Exemplo, 500",
+        "addressLocality": "Recife",
+        "addressRegion": "PE",
+        "postalCode": "50000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -8.04763,
+        "longitude": -34.87702
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Recife"
+        },
+        {
+          "@type": "State",
+          "name": "Pernambuco"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/maps?cid=SUBSTITUA_PELO_CID_DO_PERFIL",
+        "https://www.instagram.com/SUBSTITUA_PELO_PERFIL/",
+        "https://www.linkedin.com/company/SUBSTITUA_PELA_EMPRESA/"
+      ],
+      "founder": {
+        "@id": "https://example.com.br/#fundador"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços contábeis",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Abertura de empresa",
+              "description": "Registro e enquadramento tributário de novas empresas.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Departamento pessoal",
+              "description": "Folha de pagamento, admissões e rescisões.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com.br/#webpage",
+      "url": "https://example.com.br/",
+      "name": "Contábil Exemplo, escritório de contabilidade em Recife",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://example.com.br/#website"
+      },
+      "about": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "hasPart": [
+        {
+          "@id": "https://example.com.br/#faq"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com.br/#website",
+      "url": "https://example.com.br/",
+      "name": "Contábil Exemplo",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://example.com.br/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com.br/#fundador",
+      "name": "Eduarda Exemplo",
+      "jobTitle": "Contadora responsável",
+      "worksFor": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "url": "https://example.com.br/sobre/",
+      "sameAs": [
+        "https://www.linkedin.com/in/SUBSTITUA_PELO_PERFIL/"
+      ],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Registro no Conselho Regional de Contabilidade (CRC)",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Conselho Regional de Contabilidade"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://example.com.br/#faq",
+      "isPartOf": {
+        "@id": "https://example.com.br/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@id": "https://example.com.br/#pergunta-1"
+        },
+        {
+          "@id": "https://example.com.br/#pergunta-2"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-1",
+      "name": "A contabilidade atende MEI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com o que o escritório realmente atende."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-2",
+      "name": "Como é feita a troca de contador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com as etapas reais."
+      }
+    }
+  ]
+}

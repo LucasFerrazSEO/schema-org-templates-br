@@ -1,0 +1,169 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HealthAndBeautyBusiness",
+      "@id": "https://example.com.br/#organization",
+      "name": "Estética Exemplo",
+      "description": "Clínica de estética com procedimentos faciais e corporais não cirúrgicos.",
+      "url": "https://example.com.br/",
+      "logo": "https://example.com.br/imagens/logo.png",
+      "image": "https://example.com.br/imagens/fachada.jpg",
+      "telephone": "+554100000000",
+      "email": "contato@example.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Exemplo, 300",
+        "addressLocality": "Curitiba",
+        "addressRegion": "PR",
+        "postalCode": "80000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -25.42843,
+        "longitude": -49.27331
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "12:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Curitiba"
+        },
+        {
+          "@type": "State",
+          "name": "Paraná"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/maps?cid=SUBSTITUA_PELO_CID_DO_PERFIL",
+        "https://www.instagram.com/SUBSTITUA_PELO_PERFIL/",
+        "https://www.linkedin.com/company/SUBSTITUA_PELA_EMPRESA/"
+      ],
+      "founder": {
+        "@id": "https://example.com.br/#fundador"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Procedimentos",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Limpeza de pele",
+              "description": "Procedimento facial com avaliação prévia do tipo de pele.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Drenagem linfática",
+              "description": "Procedimento corporal manual realizado por profissional habilitado.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com.br/#webpage",
+      "url": "https://example.com.br/",
+      "name": "Estética Exemplo, clínica de estética em Curitiba",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://example.com.br/#website"
+      },
+      "about": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "hasPart": [
+        {
+          "@id": "https://example.com.br/#faq"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com.br/#website",
+      "url": "https://example.com.br/",
+      "name": "Estética Exemplo",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://example.com.br/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com.br/#fundador",
+      "name": "Carla Exemplo",
+      "jobTitle": "Esteticista responsável",
+      "worksFor": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "url": "https://example.com.br/sobre/",
+      "sameAs": [
+        "https://www.linkedin.com/in/SUBSTITUA_PELO_PERFIL/"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://example.com.br/#faq",
+      "isPartOf": {
+        "@id": "https://example.com.br/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@id": "https://example.com.br/#pergunta-1"
+        },
+        {
+          "@id": "https://example.com.br/#pergunta-2"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-1",
+      "name": "Preciso de avaliação antes do procedimento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com o protocolo real da clínica."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-2",
+      "name": "Quanto tempo dura uma sessão?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com a duração real de cada procedimento."
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://example.com.br/sobre/#person",
+      "name": "Joana Exemplo",
+      "description": "Consultora de finanças pessoais com atendimento on-line para todo o Brasil.",
+      "jobTitle": "Consultora de finanças pessoais",
+      "url": "https://example.com.br/sobre/",
+      "image": "https://example.com.br/imagens/joana-exemplo.jpg",
+      "email": "contato@example.com.br",
+      "telephone": "+553100000000",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Campinas",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "knowsAbout": [
+        "Finanças pessoais",
+        "Planejamento financeiro",
+        "Orçamento doméstico"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/SUBSTITUA_PELO_PERFIL/",
+        "https://www.instagram.com/SUBSTITUA_PELO_PERFIL/"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://example.com.br/sobre/#profilepage"
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://example.com.br/sobre/#profilepage",
+      "url": "https://example.com.br/sobre/",
+      "name": "Sobre Joana Exemplo, consultora de finanças pessoais",
+      "inLanguage": "pt-BR",
+      "dateCreated": "2026-01-15",
+      "dateModified": "2026-09-01",
+      "isPartOf": {
+        "@id": "https://example.com.br/#website"
+      },
+      "mainEntity": {
+        "@id": "https://example.com.br/sobre/#person"
+      },
+      "hasPart": [
+        {
+          "@id": "https://example.com.br/sobre/#faq"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com.br/#website",
+      "url": "https://example.com.br/",
+      "name": "Joana Exemplo",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://example.com.br/sobre/#person"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://example.com.br/sobre/#faq",
+      "isPartOf": {
+        "@id": "https://example.com.br/sobre/#profilepage"
+      },
+      "mainEntity": [
+        {
+          "@id": "https://example.com.br/sobre/#pergunta-1"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/sobre/#pergunta-1",
+      "name": "O atendimento é presencial ou on-line?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com o formato real de atendimento."
+      }
+    }
+  ]
+}

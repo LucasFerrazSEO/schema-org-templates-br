@@ -1,0 +1,178 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Dentist",
+      "@id": "https://example.com.br/#organization",
+      "name": "Odonto Exemplo",
+      "description": "Clínica odontológica com clínica geral, ortodontia e implantes.",
+      "url": "https://example.com.br/",
+      "logo": "https://example.com.br/imagens/logo.png",
+      "image": "https://example.com.br/imagens/fachada.jpg",
+      "telephone": "+551100000000",
+      "email": "contato@example.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Exemplo, 200, conjunto 12",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.55052,
+        "longitude": -46.63331
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "12:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "São Paulo"
+        },
+        {
+          "@type": "State",
+          "name": "São Paulo"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/maps?cid=SUBSTITUA_PELO_CID_DO_PERFIL",
+        "https://www.instagram.com/SUBSTITUA_PELO_PERFIL/",
+        "https://www.linkedin.com/company/SUBSTITUA_PELA_EMPRESA/"
+      ],
+      "founder": {
+        "@id": "https://example.com.br/#fundador"
+      },
+      "medicalSpecialty": "https://schema.org/Dentistry",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tratamentos",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Limpeza e avaliação",
+              "description": "Consulta de rotina com profilaxia e avaliação clínica.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ortodontia",
+              "description": "Tratamento ortodôntico com aparelho fixo ou alinhadores, conforme avaliação.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com.br/#webpage",
+      "url": "https://example.com.br/",
+      "name": "Odonto Exemplo, clínica odontológica em São Paulo",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://example.com.br/#website"
+      },
+      "about": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "hasPart": [
+        {
+          "@id": "https://example.com.br/#faq"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com.br/#website",
+      "url": "https://example.com.br/",
+      "name": "Odonto Exemplo",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://example.com.br/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com.br/#fundador",
+      "name": "Dr. Bruno Exemplo",
+      "jobTitle": "Cirurgião-dentista responsável técnico",
+      "worksFor": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "url": "https://example.com.br/sobre/",
+      "sameAs": [
+        "https://www.linkedin.com/in/SUBSTITUA_PELO_PERFIL/"
+      ],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Registro no Conselho Regional de Odontologia (CRO)",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Conselho Regional de Odontologia"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://example.com.br/#faq",
+      "isPartOf": {
+        "@id": "https://example.com.br/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@id": "https://example.com.br/#pergunta-1"
+        },
+        {
+          "@id": "https://example.com.br/#pergunta-2"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-1",
+      "name": "A primeira avaliação é cobrada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com a política real da clínica."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-2",
+      "name": "Quais convênios odontológicos são aceitos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com a lista real."
+      }
+    }
+  ]
+}

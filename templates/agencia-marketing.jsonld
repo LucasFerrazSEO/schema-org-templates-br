@@ -1,0 +1,173 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://example.com.br/#organization",
+      "name": "Agência Exemplo Marketing",
+      "description": "Agência de marketing digital com gestão de redes sociais, criação de sites e consultoria de SEO.",
+      "url": "https://example.com.br/",
+      "logo": "https://example.com.br/imagens/logo.png",
+      "image": "https://example.com.br/imagens/fachada.jpg",
+      "telephone": "+554800000000",
+      "email": "contato@example.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Exemplo, 800, sala 3",
+        "addressLocality": "Florianópolis",
+        "addressRegion": "SC",
+        "postalCode": "88000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -27.59541,
+        "longitude": -48.54802
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Florianópolis"
+        },
+        {
+          "@type": "State",
+          "name": "Santa Catarina"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/maps?cid=SUBSTITUA_PELO_CID_DO_PERFIL",
+        "https://www.instagram.com/SUBSTITUA_PELO_PERFIL/",
+        "https://www.linkedin.com/company/SUBSTITUA_PELA_EMPRESA/"
+      ],
+      "founder": {
+        "@id": "https://example.com.br/#fundador"
+      },
+      "knowsAbout": [
+        "Marketing digital",
+        "SEO",
+        "Criação de sites",
+        "Redes sociais"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de marketing",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Criação de sites",
+              "description": "Planejamento e desenvolvimento de site institucional.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consultoria de SEO",
+              "description": "Diagnóstico e plano de otimização para busca orgânica.",
+              "provider": {
+                "@id": "https://example.com.br/#organization"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com.br/#webpage",
+      "url": "https://example.com.br/",
+      "name": "Agência Exemplo Marketing, agência de marketing em Florianópolis",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://example.com.br/#website"
+      },
+      "about": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "hasPart": [
+        {
+          "@id": "https://example.com.br/#faq"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com.br/#website",
+      "url": "https://example.com.br/",
+      "name": "Agência Exemplo Marketing",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://example.com.br/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com.br/#fundador",
+      "name": "Helena Exemplo",
+      "jobTitle": "Fundadora e diretora de estratégia",
+      "worksFor": {
+        "@id": "https://example.com.br/#organization"
+      },
+      "url": "https://example.com.br/sobre/",
+      "sameAs": [
+        "https://www.linkedin.com/in/SUBSTITUA_PELO_PERFIL/"
+      ],
+      "knowsAbout": [
+        "Marketing digital",
+        "SEO"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://example.com.br/#faq",
+      "isPartOf": {
+        "@id": "https://example.com.br/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@id": "https://example.com.br/#pergunta-1"
+        },
+        {
+          "@id": "https://example.com.br/#pergunta-2"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-1",
+      "name": "A agência atende empresas de fora de Florianópolis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com a abrangência real."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://example.com.br/#pergunta-2",
+      "name": "Como funciona o contrato?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resposta que precisa estar visível na página, com o modelo real de contrato."
+      }
+    }
+  ]
+}
